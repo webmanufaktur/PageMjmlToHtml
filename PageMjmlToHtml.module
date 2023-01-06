@@ -158,8 +158,8 @@ class PageMjmlToHtml extends WireData implements Module, ConfigurableModule {
 		$debugView = $this->renderDebugView($mjml);
 		if($debugView === false) {
 			$mjml->html = preg_replace("/[\r\t\f\v]+/", "", $mjml->html);
-			$mjml->html = preg_replace("/(\n| )*<(\n| )*/", "<", $mjml->html);
-			$mjml->html = preg_replace("/(\n| )*>(\n| )*/", ">", $mjml->html);
+			$mjml->html = preg_replace("/<(\n| )*/", "<", $mjml->html);
+			$mjml->html = preg_replace("/(\n| )*>/", ">", $mjml->html);
 			$mjml->html = preg_replace("/(\n| )*}(\n| )*/", "}", $mjml->html);
 			$mjml->html = preg_replace("/(\n| )*{(\n| )*/", "{", $mjml->html);
 			$mjml->html = preg_replace("/\n+/", " ", $mjml->html);
